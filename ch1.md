@@ -1,9 +1,11 @@
 # Introducing jQuery
 > “There are only two kinds of languages: the ones people complain about and the ones nobody uses.”
+> 
 > — Bjarne Stroustrup
 
 ## Unobtrusive (ненавязчивый) JS 
 Нужно разделять:
+
 * Структуру документа (HTML), structure
 * Внешний вид документа (CSS), style
 * Поведение элементов документа (JS), behavior
@@ -20,6 +22,8 @@
 ## Почему скрипты нужно подключать внизу страницы
 * Чтоб не мешали рендерить страницу.
 * Чтоб не блокировали загрузку других ресурсов.
+
+Альтернатива — использовать атрибуты `defer` и `async`.
 
 ## Chaining
 ```js
