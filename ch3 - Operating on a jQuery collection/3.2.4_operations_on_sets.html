@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery-3.1.1.js"></script>
+</head>
+
+<body>
+<div class="menu">
+    <ul class="menu__list">
+        <li id="item1" class="menu__item">List Item 1</li>
+        <li id="item2" class="menu__item">List Item 2</li>
+        <li id="item3" class="menu__item">List Item 3</li>
+        <li id="item4" class="menu__item">List Item 4</li>
+    </ul>
+</div>
+<script>
+    var allIDs = $('.menu').find('li').get().map(function (element, index) {
+        return element.id;
+    });
+
+    console.log(allIDs);
+
+    allIDs = $('.menu').find('li').map(function (index, element) {
+        return element.id;
+    });
+    console.log(allIDs); // тут jQuery-коллекция, надо делать toArray();
+    console.log(allIDs.toArray());
+</script>
+</body>
+
+</html>
