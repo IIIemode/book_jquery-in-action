@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2.5</title>
+    <script src="../jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <div id="myDiv" class="division">
+    </div>
+    <script>
+    for (var i = 0; i <= 1000; i++) {
+        $('#myDiv').append('<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, nam. Fugit esse pariatur, quos cupiditate officiis delectus qui fuga ipsam a totam dolores libero perspiciatis veritatis quam nisi, possimus ducimus?</p>');
+    }
+
+    // var start = new Date().getTime();
+    console.time('noContext')
+
+    for (var i = 0; i <= 1000; i++) {
+        $('#myDiv p');
+    }
+
+    console.timeEnd('noContext');
+
+    console.time('Context')
+    for (var i = 0; i <= 1000; i++) {
+        $('#myDiv').find('p');
+    }
+    console.timeEnd('Context');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="../jquery-3.1.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="content">
+    <div class="content__i">
+        <p id="p1" class="text text_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dolores
+            eaque
+            eligendi quas repellendus temporibus vitae. Alias aperiam aspernatur deserunt exercitationem ipsum itaque
+            nisi odio omnis quo quos? Quas.</p>
+        <p class="text text_2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dolores eaque
+            eligendi quas repellendus temporibus vitae. Alias aperiam aspernatur deserunt exercitationem ipsum itaque
+            nisi odio omnis quo quos? Quas.</p>
+        <p class="text text_3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dolores eaque
+            eligendi quas repellendus temporibus vitae. Alias aperiam aspernatur deserunt exercitationem ipsum itaque
+            nisi odio omnis quo quos? Quas.</p>
+        <p id="p4" class="text text_4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dolores
+            eaque
+            eligendi quas repellendus <strong>temporibus</strong> vitae. Alias aperiam aspernatur deserunt exercitationem ipsum itaque
+            nisi odio omnis quo quos? Quas.</p>
+        <p class="text text_5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dolores eaque
+            eligendi quas repellendus temporibus vitae. Alias aperiam aspernatur deserunt exercitationem ipsum itaque
+            nisi odio omnis quo quos? Quas.</p>
+    </div>
+</div>
+
+<script>
+    // Все родительские дивы:
+    console.log($('#p4').parents('div'));
+
+    // ### 3.2.4
+    // add():
+    $('.text_3').css('background', '#f00') // красим абзац
+        .add('p[id]') // добавляем еще абзацев с айдишниками
+        .css('border', '2px solid #0f0'); // всем собранным абзацам добавляем бордер
+    // not():
+    console.log($('p').not('[id]')); // все абзацы без id
+    var $pWithChildren = $('p').not(function (index, element) {
+        return ($(element).children().length === 0); // не добавлять абзацы без дочерних элементов
+    });
+    console.log($pWithChildren);
+</script>
+</body>
+</html>
