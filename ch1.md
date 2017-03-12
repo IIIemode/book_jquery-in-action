@@ -1,7 +1,6 @@
 # Introducing jQuery
-“There are only two kinds of languages: the ones people complain about and the ones nobody uses.”
-— Bjarne Stroustrup
-
+> “There are only two kinds of languages: the ones people complain about and the ones nobody uses.”
+> — Bjarne Stroustrup
 
 ## Unobtrusive (ненавязчивый) JS 
 Нужно разделять:
@@ -19,13 +18,10 @@
 Любые скрипты должны работать с HTML из файлов, подключаемых внизу страницы, перед `</body>` за исключением особых случаев (полифилы и пр.).
 
 ## Почему скрипты нужно подключать внизу страницы
-Чтоб не мешали рендерить страницу
-Чтоб не блокировали загрузку других ресурсов
+* Чтоб не мешали рендерить страницу.
+* Чтоб не блокировали загрузку других ресурсов.
 
 ## Chaining
-* Показать пример, как чейнинг делается руками.
-* Показать, как этим пользоваться в jQuery.
-
 ```js
 // Instead of writing
 var obj = new Obj();
@@ -37,7 +33,6 @@ obj.yetAnotherMethod();
 var obj = new Obj();
 obj.method().anotherMethod().yetAnotherMethod();
 ```
-
 
 ## Контекст в селекторах
 Чтобы выбрать элемент из DOM, нужно передать селектор и опционально [контекст](http://api.jquery.com/jquery/#selector-context):
@@ -54,12 +49,12 @@ $( "div.foo" ).click(function() {
 jQuery сначала находит контекст, а потом элементы из селектора в нем.
 
 ## Как называть то, что вернет jQery('div')
-Коллекция
-Объект
-Сет
+* Коллекция
+* Выборка
+* Объект
+* Сет
 
 ## Ожидание загрузки документа
-> Спросить, как бы вы запустили скрипт по окончании загрузки документа.
 
 ```js
 // Весь документ целиком:
@@ -71,6 +66,4 @@ $(function() { /*... */ }) // сокращенный синтаксис
 
 // Но лучше всего располагать код перед </body>.
 ```
-
-
 
