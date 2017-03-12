@@ -42,15 +42,21 @@ obj.method().anotherMethod().yetAnotherMethod();
 Чтобы выбрать элемент из DOM, нужно передать селектор и опционально [контекст](http://api.jquery.com/jquery/#selector-context):
 
 ```js
-$( "div.foo" ).click(function() {
+$( ".foo" ).click(function() {
     // Начнет искать не все спаны, а спаны внутри .foo
   $( "span", this ).addClass( "bar" );
 });
 ```
 
-Тестирование использования контекста в селекторах: http://output.jsbin.com/aciji4/6
-
 jQuery сначала находит контекст, а потом элементы из селектора в нем.
+
+Вместо второго параметра лучше использовать метод `find`. С ним нагляднее:
+
+```js
+$( '.foo' ).click(function() {
+  $(this).find('span').addClass( "bar" );
+});
+```
 
 ## Как называть то, что вернет jQery('div')
 * Коллекция
