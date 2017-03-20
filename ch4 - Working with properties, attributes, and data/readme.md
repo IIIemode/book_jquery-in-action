@@ -53,13 +53,25 @@ $('input').attr({
 ## 4.3 Manipulating element properties
 [`prop`](http://api.jquery.com/prop/) — как `attr`, только для свойств.
 
-`checked` у чекбокса меняется в `attr` и `prop` взаимно с `1.6.1+`.
-
 `removeProp` — удалить свойство. Удаляет только одно свойство, в отличие от `removeAttr`. Если нативное свойство удалить, то им уже нельзя будет пользоваться, так что надо осторожно. Если удалять, то только кастомные.
 
 `prop` появился после 1.6. Раньше всегда использовали `attr`. Однако, у элементов есть свойства, для которых нет аналогичных атрибутов. Кроме того, некоторые атрибуты и их аналогичные свойства хранят разные значения (`checked`, `src`).
 
-**Атрибут `checked` соотносится со свойством `defaultChecked`, но не со свойством `checked`.** Поэтому `checked` отвечает только за начальное состояние, за атрибут из HTML. Для динамической работы с чекбоксами надо использовать `.prop('checked')`.
+**Атрибут `checked` соотносится со свойством `defaultChecked`, но не со свойством `checked`.** Поэтому атрибут `checked` отвечает только за начальное состояние (то, что в HTML). Для динамической работы с чекбоксами надо использовать `.prop('checked')`.
+
+`checked`, `selected` — это булевы атрибуты по [спецификации HTML](https://www.w3.org/TR/html4/intro/sgmltut.html#h-3.3.4.2). Это значит, что им не обязательно иметь значение. Все примеры сделают чекнутый чекбокс:
+
+```html
+<!-- Лучший вариант: -->
+<input type="checkbox" checked>
+
+<!-- Это тоже будет работать: -->
+<input type="checkbox" checked="checked">
+<input type="checkbox" checked="ololo">
+
+<!-- И даже это: -->
+<input type="checkbox" checked="false">
+```
 
 ## 4.4 Storing custom data on elements
 Часто нужно хранить данные так, чтобы они были доступны разным скриптам, работающим с элементом. Для этого можно создать глобальные переменные, но это плохой вариант: приложение плохо масштабируется, есть риск переопределить переменные, модульность страдает.
@@ -143,11 +155,17 @@ jQuery 3 хранит ключи data-данных в камелКейсе, ра
 ### Работа с атрибутом/свойством `checked`
 
 ```html
-<input type="checkbox" id="myCheckBox">
-<scirpt>
+<input type="checkbox" checked id="myCheckBox">
+<script>
     var $cb = $('#myCheckBox');
-    // Тут вопросы что будет и почему
-</scirpt>
+    
+    console.log($cb.prop('checked'), $cb.attr('checked'));
+
+    $cb.prop('checked', false);
+
+    // Что будет и почему? 
+    console.log($cb.prop('checked'), $cb.attr('checked'));
+</script>
 ```
 
 ## 4.4 Storing custom data on elements
