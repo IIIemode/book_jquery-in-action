@@ -165,7 +165,7 @@ jQuery 3 хранит ключи data-данных в камелКейсе, ра
 
 ```html
 <input type="checkbox" data-url="http://ya.ru" id="myCheckBox">
-<scirpt>
+<script>
     var $cb = $('#myCheckBox');
 
     $cb.data('url', 'http://google.com');
@@ -177,5 +177,5 @@ jQuery 3 хранит ключи data-данных в камелКейсе, ра
 
     // Что будет и почему?
     console.log($cb.attr('data-url'));
-</scirpt>
+</script>
 ```
