@@ -7453,7 +7453,7 @@ jQuery.fn.delay = function( time, type ) {
 var boolHook,
 	attrHandle = jQuery.expr.attrHandle;
 
-jQuery.fn.extend( {
+jQuery.fn.extend( { // $('div').attr()
 	attr: function( name, value ) {
 		return access( this, jQuery.attr, name, value, arguments.length > 1 );
 	},
@@ -7466,7 +7466,7 @@ jQuery.fn.extend( {
 } );
 
 jQuery.extend( {
-	attr: function( elem, name, value ) {
+	attr: function( elem, name, value ) { // $.attr
 		var ret, hooks,
 			nType = elem.nodeType;
 
