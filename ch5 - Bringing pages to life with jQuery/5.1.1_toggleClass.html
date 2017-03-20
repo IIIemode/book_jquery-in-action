@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery-3.1.1.js"></script>
+    <style>
+    ._active {
+        background: #f00;
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="list" id="list">
+        <li class="list__item list__item_1 _active">List Item 1</li>
+        <li class="list__item list__item_2">List Item 2</li>
+        <li class="list__item list__item_3">List Item 3</li>
+        <li class="list__item list__item_4">List Item 4</li>
+        <li class="list__item list__item_5">List Item 5</li>
+    </ul>
+    <input type="checkbox" name="list-switcher" id="listSwitcher">
+    <label for="listSwitcher">Добавить <code>_active</code> для всех?</label>
+    <br>
+    <button id="btnSwitcher">Переключить <code>_active</code></button>
+    <script>
+    var $list = $('#list');
+    // $list.find('li').toggleClass('_active'); 
+    $('#btnSwitcher').on('click', function() {
+        $list.find('li').toggleClass('_active', $('#listSwitcher').prop('checked'));
+    });
+    </script>
+</body>
+
+</html>

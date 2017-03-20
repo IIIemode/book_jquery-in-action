@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery-3.1.1.js"></script>
+    <script src="../helpers.js"></script>
+</head>
+
+<body>
+    <img tabindex="2" id="myImage" width="200" src="../cover.png" style="border: 1px solid #CCC; float: left;" alt="Book cover" class="book" title="jQuery in Action">
+    <input type="checkbox" id="book" name="book" title="Check this!" book="jQuery in Action" />
+    <script>
+    const img = document.getElementById('myImage');
+    const input = document.getElementById('book');
+
+    // img is HTMLElement object instance:
+    console.log('See prototype chain for all properties:');
+    showPrototypeChain(img);
+
+    console.log('');
+
+    console.log('Properties example:', img.alt, img.className);
+    console.log('Attributes example:', img.getAttribute('alt'), img.getAttribute('class'));
+
+    console.log('');
+
+    console.log('Attribute style type:', typeof img.getAttribute('style'), 'Property tabIndex type:', typeof img.style);
+    console.log('Property style type:', typeof img.style, 'Property tabIndex type:', typeof img.style);
+    console.log(img.getAttribute('style'));
+    console.log(img.style, img.style.__proto__);
+    console.log(img.style.cssFloat, img.style.cssText);
+
+    // Sync
+    console.log('');
+    console.log('input[checked]:', input.getAttribute('checked'), 'input.checked:', input.checked);
+
+    var checkbox = document.getElementById('book');
+
+    console.log(checkbox.getAttribute('title') === checkbox.title);
+    checkbox.title = 'New title!';
+    console.log(checkbox.getAttribute('title') === checkbox.title);
+
+    checkbox.setAttribute('title', 'Another title!');
+    console.log(checkbox.getAttribute('title') === checkbox.title);
+
+    console.log(checkbox.getAttribute('checked') === checkbox.checked);
+
+    console.log('');
+    console.log(img.src, img.getAttribute('src'));
+
+    console.log('');
+    console.log('Attribute is case insensitive:', $(img).attr('TiTle'));
+
+    console.log('');
+    console.log($(img).prop('src'), $(img).attr('src'));
+    </script>
+</body>
+
+</html>

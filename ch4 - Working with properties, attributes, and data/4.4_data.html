@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <input id="rating" type="checkbox" data-scores="10" data-people="['vasya', 'petya']" data-disabled="false">
+    <script>
+    var $rating = $('#rating');
+
+    console.log($.hasData($rating.get(0))); // false, ничего не сохраняли через jQuery
+
+
+    console.log($rating.data());
+
+    console.log($.hasData($rating.get(0))); // true, при запросе .data создалисть структуры jQuery
+
+    console.log($rating.data('scores'), typeof $rating.data('scores'));
+    console.log($rating.attr('data-scores'), typeof $rating.attr('data-scores'));
+
+    // Геттер
+    console.log($rating.attr('data-scores'), $rating.data('scores'));
+    $rating.data('scores', 200); // меняет внутреннюю структуру jQuery, но не атрибут HTML
+    console.log($rating.attr('data-scores'), $rating.data('scores'));
+    </script>
+</body>
+
+</html>
