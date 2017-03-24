@@ -97,7 +97,7 @@ $("a[href!='http://jquery.com']") // все ссылки, кроме http://jque
 В фильтрах, которые дает jQuery, индексы начинаются с `0`. В фильтрах из спецификации CSS индексы идут с `1`.
 
 ### 2.5.2 Child filters
-`eq` работает только с выборкой по селектору, `nth-child` работает *со всеми элементами внутри родителя, независимо от их типа, даже если в селекторе они не указаны*. См. `./selectors_example.html`, пример `nth-child vs eq`.
+`eq` работает только с выборкой по селектору, `nth-child` работает *со всеми элементами внутри родителя, независимо от их типа, даже если в селекторе они не указаны*. См. [`./examplesselectors_example.html`](/examplesselectors_example.html), пример `nth-child vs eq`.
 
 * https://learn.javascript.ru/css-selectors#фильтр-по-месту-среди-соседей
 * https://learn.javascript.ru/css-selectors#фильтр-по-месту-среди-соседей-с-тем-же-тегом
@@ -181,4 +181,4 @@ $form.find(':checked').addClass('_on');
 $(':checked', $form).addClass('_on');
 ```
 
-См. [пример](2.6_performance.html).
+См. [пример](examples/2.6_performance.html).

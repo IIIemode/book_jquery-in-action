@@ -45,6 +45,24 @@ $('p').css({
 `css(name)` как геттер принимает строку или массив CSS-свойств и возвращает стили. Вернет строку или объект.
 
 #### Getting and Setting Dimensions
+`.width()` и `.height()`, в отличие от `.css('width|height')` вернут сразу число.
+
+До jQuery 3 возвращались округленные значения (`parseInt`), в `3.0` округления нет, значение более точное.
+
+`el.style.width|height` сработают только для значений, установленных в атрибуте `style`. Для значений из CSS используют [`getComputedStyle`](https://learn.javascript.ru/styles-and-classes), который вернет строку с пикселями: `500px`.
+
+См. примеры в [`css.html`](examples/css.html).
+
+`innerWidth()` — вернет ширину + паддинг не включая бордер.
+
+`outerWidth([includeMargin])` — вернет ширину + паддинг + бордер. Если передать `true`, то включит еще и маржин.
+
+Имеются аналогичные методы для `height`.
+
+См. [примеры](examples/5.1.2_width_height.html).
+
+#### Positions and Scrolling
+
 
 ## Вопросы и задания
 
@@ -52,4 +70,3 @@ $('p').css({
 На [странице](tasks/50_shades_of_grey.html) имеется 50 блоков, все розовые. Используя метод `.css()` перекрасьте эти блоки так, чтобы получилось 50 оттенков серого:
 
 <img src="tasks/50_shades_view.png" width="400">
-

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../jquery.js"></script>
+    <style>
+    #box {
+        border: 3px solid green;
+        background: pink;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        padding: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="box">Lorem ipsum</div>
+    <script>
+    let $box = $('#box');
+    let box = document.getElementById('box');
+
+    console.log(
+        $box.width(),
+        $box.innerWidth(),
+        $box.outerWidth(true),
+        $box.outerWidth(true)
+    );
+
+    console.log(getComputedStyle(box).width);
+    </script>
+</body>
+
+</html>

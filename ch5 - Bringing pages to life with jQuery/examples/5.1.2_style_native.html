@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../jquery.js"></script>
+    <style>
+    .width-by-class {
+        width: 500px;
+        border: 1px solid #CCC;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="byClass" class="width-by-class"></div>
+    <div id="byStyle" style="width: 500px;"></div>
+    <script>
+    let byClass = document.getElementById('byClass');
+    let byStyle = document.getElementById('byStyle');
+
+    // Так мы сможем взять только стили, указанные в атрибуте style:
+    console.log(`#byClass style.width: ${byClass.style.width}`);
+    console.log(`#byStyle style.width: ${byStyle.style.width}`);
+
+    // Надое делать так, чтобы достать значение, указанное в классе или фиктическое:
+    console.log(`#byClass getComputedStyle: ${getComputedStyle(byClass).width}`);
+    </script>
+</body>
+
+</html>
