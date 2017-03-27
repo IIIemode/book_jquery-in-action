@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../jquery.js"></script>
+    <style>
+    	.left, .right {
+    		float: left;
+    		width: 50%;
+    		height: 300px;
+    	}
+    	.right {
+    		background: #CCC;
+    	}
+    </style>
+</head>
+
+<body>
+    <div id="left" class="left">
+        <button id="myBtn">Click!</button>
+    </div>
+    <div id="right" class="right">
+    </div>
+    <script>
+    const $btn = $('#myBtn');
+    $btn.data('text', 'Hello from button!');
+
+    $btn.on('click', function() {
+        alert($(this).data('text'));
+    });
+
+    // Клонирование с обработчиками:
+    // $('#right').append($btn.clone(true));
+
+    // Обработчики теряются:
+    // $('#right').append($btn.remove());
+
+    // Обработчики и данные остаются:
+    // $('#right').append($btn.detach());
+    </script>
+</body>
+
+</html>

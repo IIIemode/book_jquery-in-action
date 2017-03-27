@@ -182,3 +182,6 @@ $(':checked', $form).addClass('_on');
 ```
 
 См. [пример](examples/2.6_performance.html).
+
+## Ссылки
+* [Все селекторы jQuery](https://api.jquery.com/category/selectors/)
