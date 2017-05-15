@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+
+<body>
+<button id="btn">Load data</button>
+<div id="content"></div>
+
+<hr>
+
+<form id="commentForm" action="#">
+    <div>
+        <input type="text" name="name" value="Вася">
+    </div>
+    <div>
+        <textarea name="comment">Текст комментария</textarea>
+    </div>
+    <button id="serializeBtn">Сериализовать как Query String</button>
+    <button id="serializeArrayBtn">Сериализовать как массив</button>
+</form>
+<script>
+    // Метод .load()
+    $('#btn').on('click', (ev) => {
+        $('#content')
+            .load('data.html p:last-of-type', loadCb) // можно селектор пихать, если надо выбрать из пришедшего HTML
+            .css('background', 'red').promise().done(() => { // возвращает коллекцию (асинхронно)
+            console.log('colored');
+        });
+    });
+
+    function loadCb(responseText, status, jqXHR) {
+        console.log(jqXHR.getResponseHeader('Content-Type'));
+        console.log(responseText, status, jqXHR);
+    }
+
+    // Сериализация
+    $('#serializeBtn').on('click', () => {
+        console.log($('#commentForm').serialize());
+    });
+    $('#serializeArrayBtn').on('click', () => {
+        console.log($('#commentForm').serializeArray());
+    });
+</script>
+</body>
+
+</html>
