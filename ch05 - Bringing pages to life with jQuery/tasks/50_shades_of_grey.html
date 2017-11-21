@@ -15,7 +15,6 @@
         font: 14px/1.4 Consolas, Monaco, monospace;
         padding: 10px;
         background: pink;
-        border: 1px solid white;
     }
     </style>
 </head>
@@ -36,6 +35,7 @@
 
     shade.css('background-color', function(index, value){
         value = 5;
+        index = 50 - index;
         let color = `rgb(${index * value}, ${index * value}, ${index * value})`;
         return color;
     });
