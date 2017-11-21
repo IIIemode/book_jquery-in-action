@@ -27,7 +27,35 @@
 <body>
     <div id="ball"></div>
     <script>
-    // Ваш код...
+
+    const ball = $('#ball'),
+        widthBall = parseInt(getComputedStyle(ball[0]).width),
+        heightBall = parseInt(getComputedStyle(ball[0]).height);
+
+    let iTop = 0,
+        iLeft = 0,
+        dirTop = 1,
+        dirLeft = 1;
+
+    setInterval(() => {
+
+        ball.css('top', iTop += dirTop);
+        ball.css('left', iLeft += dirLeft);
+
+        if (ball.offset().top + heightBall >= $(window).height()) {
+            dirTop = -1;
+        } else if (ball.offset().top < 0) {
+            dirTop = 1;
+        }
+
+        if (ball.offset().left + widthBall >= $(window).width()) {
+            dirLeft = -1;
+        } else if (ball.offset().left < 0) {
+            dirLeft = 1;
+        }
+
+    }, 2);  
+
     </script>
 </body>
 
