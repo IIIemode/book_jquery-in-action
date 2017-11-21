@@ -15,6 +15,7 @@
         font: 14px/1.4 Consolas, Monaco, monospace;
         padding: 10px;
         background: pink;
+        border: 1px solid white;
     }
     </style>
 </head>
@@ -30,7 +31,14 @@
         }).appendTo($body);
     }
 
-    // Ваш код тут...
+    let shade = $('.shade');
+    console.log(getComputedStyle(shade[0]).backgroundColor);
+
+    shade.css('background-color', function(index, value){
+        value = 5;
+        let color = `rgb(${index * value}, ${index * value}, ${index * value})`;
+        return color;
+    });
 
     </script>
 </body>
